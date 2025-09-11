@@ -1,0 +1,247 @@
+/* 🔹 Landing container */
+.landing-container {
+  font-family: Arial, sans-serif;
+  color: #fff;
+  background: #111;
+  min-height: 100vh;
+  max-width: 2300px; /* Limit width */
+  margin: 0 auto; /* Center the container */
+  padding: 0 15px;
+  display: flex;
+  flex-direction: column;
+}
+
+#top-rated {
+  text-align: center; /* center align lahat ng text sa loob */
+}
+
+#top-rated h2 {
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+#top-rated p {
+  font-size: 1.1rem;
+  color: #aaa;
+}
+
+
+/* 🔹 Top Navbar (fixed but inside container) */
+.navbar-top {
+  position: fixed;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%); /* center sa container */
+  width: 98%;
+  max-width: 2000px; /* fit lang sa container */
+  background: #1a1a1a;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 20px;
+  z-index: 1000;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.6);
+  border-radius: 0 0 10px 10px;
+}
+
+.site-name {
+  font-size: 20px;
+  font-weight: bold;
+  color: #d31010;
+}
+
+.search-bar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.search-bar input {
+  padding: 8px 12px;
+  border: none;
+  border-radius: 20px;
+  outline: none;
+  width: 220px;
+}
+
+.search-bar button {
+  background: #2531bc;
+  border: none;
+  border-radius: 50%;
+  padding: 8px 10px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: 0.3s;
+}
+
+.search-bar button:hover {
+  background: #dc3172;
+}
+
+/* 🔹 Bottom Navbar */
+.navbar-bottom {
+  margin-top: 70px; /* para hindi matakpan ng top navbar */
+  background: #222;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 20px;
+  border-radius: 10px;
+}
+
+.navbar-bottom .logo {
+  font-weight: bold;
+  font-size: 18px;
+  color: #c11313;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 18px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #fff;
+  transition: 0.3s;
+}
+
+.nav-links a:hover {
+  color: #ffcc00;
+}
+
+/* 🔹 Hero */
+header {
+  text-align: center;
+  padding: 60px 20px 20px;
+}
+
+header h1 {
+  font-size: 32px;
+  margin-bottom: 10px;
+}
+
+header p {
+  font-size: 18px;
+  color: #ccc;
+}
+
+/* 🔹 Movie Grid: 5 per row */
+.movie-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr); /* always 5 columns */
+  gap: 18px;
+  padding: 20px;
+}
+
+.movie-card {
+  background: #222;
+  border-radius: 10px;
+  overflow: hidden;
+  transition: transform 0.3s;
+  cursor: pointer;
+}
+
+.movie-card:hover {
+  transform: scale(1.05);
+}
+
+.movie-image-wrapper {
+  position: relative;
+}
+
+.movie-image-wrapper img {
+  width: 100%;
+  display: block;
+  border-bottom: 2px solid #333;
+}
+
+.movie-overlay button {
+  margin-top: 8px;
+  padding: 8px 14px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 160px;
+  text-align: center;
+  font-weight: 500;
+  transition: background 0.3s;
+}
+
+/* Watch Now */
+.movie-overlay .btn-watch {
+  background: #e50914; /* Netflix red */
+  color: #fff;
+}
+.movie-overlay .btn-watch:hover {
+  background: #b00610;
+}
+
+/* Add to Watchlist */
+.movie-overlay .btn-watchlist {
+  background: #f5c518; /* IMDb yellow */
+  color: #000;
+}
+.movie-overlay .btn-watchlist:hover {
+  background: #d4aa15;
+}
+
+/* View Details */
+.movie-overlay .btn-details {
+  background: #4caf50; /* Green */
+  color: #fff;
+}
+.movie-overlay .btn-details:hover {
+  background: #3e8e41;
+}
+
+
+.movie-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.7);
+  opacity: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  transition: opacity 0.3s;
+}
+
+.movie-image-wrapper:hover .movie-overlay {
+  opacity: 1;
+}
+
+.movie-overlay p {
+  margin: 0;
+  font-size: 14px;
+}
+
+.movie-overlay button {
+  background: #ffcc00;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.movie-overlay button:hover {
+  background: #e6b800;
+}
+
+.movie-info {
+  padding: 10px;
+  text-align: center;
+}
+
+/* 🔹 Footer */
+.footer {
+  margin-top: auto;
+  background: #111;
+  text-align: center;
+  padding: 15px;
+  color: #aaa;
+}

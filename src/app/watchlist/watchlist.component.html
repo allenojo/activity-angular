@@ -1,0 +1,49 @@
+<div class="container">
+
+  <!-- 🔹 Navbar -->
+  <nav class="navbar">
+    <div class="nav-left">
+      <a routerLink="/">Home</a>
+      <a routerLink="/browse-movies">Browse Movies</a>
+      <!-- <a [routerLink]="[]" [state]="{ filter: 'top-rated' }">Top Rated</a> -->
+      <a routerLink="/watchlist">My Watchlist ({{ watchlist.length }})</a>
+    </div>
+
+    <div class="nav-right">
+      <form (ngSubmit)="searchMovies()" class="search-form">
+        <input
+          type="text"
+          [(ngModel)]="searchText"
+          name="search"
+          placeholder="Search movies..."
+        />
+        <button type="submit">🔍</button>
+      </form>
+    </div>
+  </nav>
+
+  <!-- 🔹 Page Title -->
+  <h1 class="page-title">📋 My Watchlist</h1>
+
+  <!-- 🔹 Empty state -->
+  <div *ngIf="watchlist.length === 0" class="empty-watchlist">
+    Your watchlist is empty 😔
+  </div>
+
+  <!-- 🔹 Watchlist Grid -->
+  <div class="movie-grid">
+    <div class="movie-card" *ngFor="let movie of watchlist">
+      <div class="poster-container">
+        <img [src]="'https://image.tmdb.org/t/p/w500' + movie.poster_path" [alt]="movie.title" />
+        <div class="movie-overlay">
+          <h3>{{ movie.title }}</h3>
+          <p>{{ movie.release_date }}</p> 
+          <div class="watchlist-buttons">
+            <button class="btn-watch" (click)="watchMovie(movie)">▶ Watch</button>
+            <button class="btn-remove" (click)="removeFromWatchlist(movie)">🗑 Remove</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

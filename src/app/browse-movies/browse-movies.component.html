@@ -1,0 +1,104 @@
+<div class="browse-container">
+
+  <!-- 🔹 Navbar -->
+  <nav class="navbar">
+    <div class="nav-left">
+      <a routerLink="/">Home</a>
+      <a routerLink="/browse-movies">Browse Movies</a>
+      <!-- <a [routerLink]="[]" [state]="{ filter: 'top-rated' }">Top Rated</a> -->
+      <a routerLink="/watchlist">My Watchlist ({{ watchlistCount }})</a>
+    </div>
+
+    <div class="nav-right">
+      <form (ngSubmit)="searchMovies()" class="search-form">
+        <input
+          type="text"
+          [(ngModel)]="searchText"
+          name="search"
+          placeholder="Search movies..."
+        />
+        <button type="submit">🔍</button>
+      </form>
+    </div>
+  </nav>
+
+  <!-- 🔹 Heading -->
+  <header>
+    <h1>🎬 Browse Movies</h1>
+    <p>Discover popular movies or search for your favorites!</p>
+  </header>
+
+  <!-- 🔹 Filters -->
+  <section class="filters">
+    <label>
+      Genre:
+      <select [(ngModel)]="selectedGenre" (change)="applyFilters()">
+        <option value="All">All</option>
+        <option *ngFor="let g of genres" [value]="g">{{ g }}</option>
+      </select>
+    </label>
+
+    <label>
+      Rating:
+      <select [(ngModel)]="selectedRating" (change)="applyFilters()">
+        <option value="All">All</option>
+        <option *ngFor="let r of ratings" [value]="r">{{ r }}+</option>
+      </select>
+    </label>
+
+    <label>
+      Year:
+      <select [(ngModel)]="selectedYear" (change)="applyFilters()">
+        <option value="All">All</option>
+        <option *ngFor="let y of years" [value]="y">{{ y }}</option>
+      </select>
+    </label>
+
+    <label>
+      Order:
+      <select [(ngModel)]="selectedOrder" (change)="applyFilters()">
+        <option value="Featured">Featured</option>
+        <option value="Newest">Newest</option>
+        <option value="HighestRated">Highest Rated</option>
+      </select>
+    </label>
+  </section>
+
+<div class="movie-grid">
+<div class="movie-card" *ngFor="let movie of paginatedMovies">
+  <div class="movie-image-wrapper">
+    <img 
+      [src]="'https://image.tmdb.org/t/p/w500' + movie.poster_path" 
+      [alt]="movie.title"
+    />
+
+    <!-- Overlay kapag hover -->
+    <div class="movie-overlay">
+      <p class="rating">{{ movie.vote_average }} / 10</p>
+      <p class="genre">{{ movie.genre || 'N/A' }}</p>
+
+      <!-- Buttons stacked -->
+      <div class="overlay-buttons">
+        <button class="btn-watch" (click)="watchNow(movie)">Watch Now</button>
+        <button (click)="addToWatchlist(movie)">➕ Add to Watchlist</button>
+        <button (click)="goToDetails(movie)">View Details</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="movie-info">
+    <h3>{{ movie.title }}</h3>
+  </div>
+</div>
+
+</div>
+
+
+<!-- 🔹 Pagination Controls -->
+<div class="pagination">
+  <button (click)="prevPage()" [disabled]="currentPage === 1">⬅ Previous</button>
+  <span>Page {{ currentPage }} of {{ totalPages }}</span>
+  <button (click)="nextPage()" [disabled]="currentPage === totalPages">Next ➡</button>
+</div>
+
+

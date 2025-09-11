@@ -1,0 +1,59 @@
+<div class="landing-container">
+  <!-- 🔹 Top Navbar (Search + Site Name) -->
+  <nav class="navbar-top">
+    <div class="site-name">TMDB Website</div>
+    <div class="search-bar">
+      <input type="text" [(ngModel)]="searchQuery" name="search" placeholder="Search movies..." />
+      <button (click)="searchMovies()">🔍</button>
+    </div>
+  </nav>
+
+  <!-- 🔹 Bottom Navbar -->
+  <nav class="navbar-bottom">
+    <div class="logo">🎬 MovieSite</div>
+    <ul class="nav-links">
+      <li><a routerLink="/">Home</a></li>
+      <li><a routerLink="/browse-movies">Browse Movies</a></li>
+      <li><a routerLink="/watchlist">My Watchlist ({{ watchlistCount }})</a></li>
+    </ul>
+  </nav>
+
+  <!-- 🔹 Hero Section -->
+  <header>
+    <h1>🎬 Welcome to My Movie Site</h1>
+    <p>Discover amazing movies and explore your favorites!</p>
+  </header>
+
+  <!-- 🔹 Top Rated Section -->
+  <section id="top-rated">
+    <h2>🌟 Top Rated Movies</h2>
+    <p>Check out the most loved movies by our visitors!</p>
+    <div class="movie-grid">
+      <div class="movie-card" *ngFor="let movie of topRatedMovies">
+        <div class="movie-image-wrapper">
+          <img [src]="'https://image.tmdb.org/t/p/w500' + movie.poster_path" [alt]="movie.title" />
+         <div class="movie-overlay">
+  <p class="rating">{{ movie.vote_average }} / 10</p>
+  <p class="genre">{{ movie.genre || 'Documentary' }}</p>
+
+  <!-- Buttons -->
+  <button class="btn-watch" (click)="watchNow(movie)">Watch Now</button>
+  <button class="btn-watchlist" (click)="addToWatchlist(movie)">Add to Watchlist</button>
+  <button class="btn-details" (click)="goToDetails(movie)">View Details</button>
+</div>
+
+        </div>
+        <div class="movie-info">
+          <h3>{{ movie.title }}</h3>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 🔹 Footer -->
+  <footer class="footer">
+    <div class="footer-content">
+      <p>🎬 TMDB Movie Site &copy; {{ currentYear }}. All rights reserved.</p>
+    </div>
+  </footer>
+</div>

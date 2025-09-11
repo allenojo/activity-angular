@@ -1,0 +1,186 @@
+/* 🔹 Global Container */
+.container {
+  padding: 20px;
+  max-width: 2500px;
+  margin: auto;
+  font-family: "Segoe UI", sans-serif;
+  color: #fff;
+  background-color: #150303; /* ✅ Full black background */
+  min-height: 100vh;
+}
+
+
+/* 🔹 Navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #111; /* darker black */
+  padding: 12px 20px;
+  border-radius: 10px;
+  margin-bottom: 25px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.6);
+}
+
+.navbar a {
+  color: #ddd;
+  margin-right: 20px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+.navbar a:hover {
+  color: #ffcc00;
+}
+
+/* 🔹 Search Form */
+.search-form {
+  display: flex;
+  align-items: center;
+  background: #1a1a1a;
+  padding: 5px 10px;
+  border-radius: 20px;
+}
+
+.search-form input {
+  border: none;
+  outline: none;
+  padding: 6px 10px;
+  border-radius: 20px;
+  background: transparent;
+  color: #fff;
+  width: 200px;
+}
+
+.search-form button {
+  border: none;
+  background: #ffcc00;
+  border-radius: 50%;
+  padding: 6px 10px;
+  cursor: pointer;
+  font-size: 14px;
+  margin-left: 8px;
+  transition: background 0.3s;
+}
+
+.search-form button:hover {
+  background: #ff9900;
+}
+
+/* 🔹 Page Title */
+.page-title {
+  font-size: 28px;
+  margin-bottom: 20px;
+  font-weight: bold;
+  color: #ffcc00;
+  text-align: center;
+}
+
+/* 🔹 Empty Watchlist */
+.empty-watchlist {
+  text-align: center;
+  font-size: 18px;
+  color: #bbb;
+  margin-top: 40px;
+}
+
+/* 🔹 Movie Grid: 5 per row */
+.movie-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr); /* always 5 columns */
+  gap: 18px;
+  padding: 20px;
+}
+
+/* 🔹 Movie Card */
+.movie-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 12px;
+  background: #1a1a1a;
+  transition: transform 0.3s;
+  box-shadow: 0px 4px 12px rgba(0,0,0,0.4);
+}
+
+.movie-card:hover {
+  transform: translateY(-5px);
+}
+
+.poster-container img {
+  width: 100%;
+  display: block;
+  border-radius: 12px;
+}
+
+/* 🔹 Overlay Info */
+.movie-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0,0,0,0.85);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transition: opacity 0.3s;
+  text-align: center;
+  padding: 15px;
+}
+
+.movie-card:hover .movie-overlay {
+  opacity: 1;
+}
+
+.movie-overlay h3 {
+  font-size: 16px;
+  margin: 5px 0;
+  color: #fff;
+}
+
+.movie-overlay p {
+  font-size: 13px;
+  color: #ccc;
+  margin-bottom: 15px;
+}
+
+/* 🔹 Buttons - stacked vertically */
+.watchlist-buttons {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.btn-watch, .btn-remove {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: bold;
+  transition: background 0.3s;
+  width: 120px;
+  text-align: center;
+}
+
+.btn-watch {
+  background: #ffcc00;
+  color: #000;
+}
+
+.btn-watch:hover {
+  background: #ff9900;
+}
+
+.btn-remove {
+  background: #e74c3c;
+  color: #fff;
+}
+
+.btn-remove:hover {
+  background: #c0392b;
+}

@@ -1,0 +1,7 @@
+<div class="movie-grid">
+  <div class="movie-card" *ngFor="let movie of movies">
+    <img [src]="movie.poster" [alt]="movie.title" width="120">
+    <h3>{{ movie.title }} ({{ movie.year }})</h3>
+    <button (click)="goToDetails(movie.id)">Details</button>
+  </div>
+</div>

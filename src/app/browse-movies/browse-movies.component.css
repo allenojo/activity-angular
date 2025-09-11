@@ -1,0 +1,281 @@
+/* 🎬 Browse Movies Styles */
+
+/* 🔹 Container */
+.browse-container {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  padding: 20px;
+  background: #121212;
+  color: #f1f1f1;
+  min-height: 100vh;
+}
+
+/* 🔹 Navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #1e1e1e;
+  padding: 12px 20px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+
+.navbar a {
+  color: #bbb;
+  margin-right: 15px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+.navbar a:hover {
+  color: #fff;
+}
+
+.search-form {
+  display: flex;
+  align-items: center;
+}
+
+.search-form input {
+  padding: 6px 10px;
+  border: none;
+  border-radius: 6px 0 0 6px;
+  outline: none;
+  background: #2c2c2c;
+  color: #fff;
+}
+
+.search-form button {
+  padding: 6px 12px;
+  border: none;
+  border-radius: 0 6px 6px 0;
+  background: #3a82f7;
+  color: white;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.search-form button:hover {
+  background: #1f65d6;
+}
+
+/* 🔹 Heading */
+header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+header h1 {
+  font-size: 2rem;
+  color: #fff;
+}
+
+header p {
+  color: #aaa;
+}
+
+/* 🔹 Filters */
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin: 20px 0;
+  background: #1e1e1e;
+  padding: 15px;
+  border-radius: 10px;
+
+  justify-content: center; /* horizontal center */
+  align-items: center;     /* vertical center */
+  text-align: center;      /* text inside elements aligned center */
+}
+
+.filters label {
+  display: flex;
+  flex-direction: column;
+  font-size: 0.9rem;
+  color: #ccc;
+}
+
+.filters select {
+  padding: 6px 10px;
+  border-radius: 6px;
+  border: none;
+  background: #2c2c2c;
+  color: white;
+  cursor: pointer;
+}
+
+/* 🔹 Movie Grid */
+/* 🔹 Movie Grid: 5 per row */
+.movie-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr); /* always 5 columns */
+  gap: 18px;
+  padding: 20px;
+}
+
+.movie-card {
+  background: #1e1e1e;
+  padding: 10px;
+  border-radius: 12px;
+  text-align: center;
+  transition: transform 0.3s, box-shadow 0.3s;
+  cursor: pointer;
+}
+
+.movie-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.5);
+}
+
+.movie-card img {
+  width: 100%;
+  border-radius: 8px;
+  margin-bottom: 8px;
+}
+
+.movie-card h3 {
+  font-size: 1rem;
+  color: #fff;
+  margin: 0;
+}
+
+/* 🔹 Hover overlay for details button */
+.movie-image-wrapper {
+  position: relative;
+  overflow: hidden;
+  border-radius: 10px;
+}
+
+.movie-image-wrapper img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 10px;
+  transition: transform 0.3s ease;
+}
+
+.movie-image-wrapper:hover img {
+  transform: scale(1.05);
+}
+
+.movie-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.7);
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  border-radius: 10px;
+  gap: 10px; /* space between rating/genre/buttons */
+  padding: 10px;
+}
+
+.movie-image-wrapper:hover .movie-overlay {
+  opacity: 1;
+}
+
+/* Overlay buttons */
+.overlay-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 5px;
+}
+
+.overlay-buttons button {
+  padding: 8px 12px;
+  background: #15c11d;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  font-weight: 500;
+  cursor: pointer;
+  width: 160px;
+  transition: background 0.3s;
+}
+
+.overlay-buttons button:hover {
+  background: #1f65d6;
+}
+
+.btn-watch {
+  display: inline-block;
+  padding: 10px 18px;
+  margin-top: 8px;
+  background: #e50914; /* Netflix red */
+  color: white;
+  font-size: 14px;
+  font-weight: 600;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  text-align: center;
+  transition: all 0.3s ease-in-out;
+  width: 100%;
+}
+
+.btn-watch:hover {
+  background: #b20710;
+  transform: scale(1.05);
+}
+
+
+/* 🔹 Pagination */
+.pagination {
+  margin-top: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+}
+
+.pagination button {
+  background: #3a82f7;
+  color: white;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.pagination button:disabled {
+  background: #555;
+  cursor: not-allowed;
+}
+
+.pagination button:hover:not(:disabled) {
+  background: #1f65d6;
+}
+
+.pagination span {
+  font-weight: 500;
+  color: #ccc;
+}
+
+/* 🔹 Responsive */
+@media (max-width: 768px) {
+  .filters {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .navbar {
+    flex-direction: column;
+    gap: 10px;
+    text-align: center;
+  }
+
+  .nav-left {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+  }
+}

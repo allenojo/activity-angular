@@ -1,0 +1,44 @@
+  <!-- 🔹 Navbar -->
+  <nav class="navbar">
+    <div class="nav-left">
+      <a routerLink="/">Home</a>
+      <a routerLink="/browse-movies">Browse Movies</a>
+      <!-- <a [routerLink]="[]" [state]="{ filter: 'top-rated' }">Top Rated</a> -->
+      <a routerLink="/watchlist">My Watchlist ({{ watchlistCount }})</a>
+    </div>
+
+    <div class="nav-right">
+      <form (ngSubmit)="searchMovies()" class="search-form">
+        <input
+          type="text"
+          [(ngModel)]="searchText"
+          name="search"
+          placeholder="Search movies..."
+        />
+        <button type="submit">🔍</button>
+      </form>
+    </div>
+  </nav>
+
+<div *ngIf="movie" class="details-container">
+  <div class="details-card">
+    <img [src]="'https://image.tmdb.org/t/p/w500' + movie.poster_path" [alt]="movie.title">
+    <div class="details-info">
+      <h2>{{ movie.title }}</h2>
+      <p><strong>Release Date:</strong> {{ movie.release_date }}</p>
+      <p><strong>Rating:</strong> {{ movie.vote_average }}/10</p>
+      <p class="overview">{{ movie.overview }}</p>
+
+      <!-- Buttons row -->
+      <div class="buttons-row">
+        <button routerLink="/browse-movies">⬅️ Go Back to Browse</button>
+        <button (click)="addToWatchlist(movie)">➕ Add to Watchlist</button>
+        <button class="btn-watch" (click)="watchNow(movie)">Watch Now</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="!movie" class="loading">
+  <p>Loading movie details...</p>
+</div>

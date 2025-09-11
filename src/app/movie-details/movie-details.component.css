@@ -1,0 +1,154 @@
+/* 🔹 Navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #111;
+  padding: 12px 24px;
+  color: #fff;
+  font-family: Arial, sans-serif;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
+}
+
+.navbar a {
+  color: #fff;
+  text-decoration: none;
+  margin-right: 16px;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+.navbar a:hover {
+  color: #ff4444;
+}
+
+.search-form {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.search-form input {
+  padding: 6px 10px;
+  border-radius: 20px;
+  border: none;
+  outline: none;
+  font-size: 14px;
+}
+
+.search-form button {
+  background: #ff4444;
+  color: #fff;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.search-form button:hover {
+  background: #e63e3e;
+}
+
+/* 🔹 Movie Details */
+.details-container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 40px;
+  background: #141414;
+  min-height: calc(100vh - 60px);
+}
+
+.details-card {
+  display: flex;
+  gap: 24px;
+  background: #1f1f1f;
+  border-radius: 12px;
+  padding: 20px;
+  max-width: 900px;
+  width: 100%;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.6);
+  color: #fff;
+}
+
+.details-card img {
+  width: 300px;
+  border-radius: 10px;
+  object-fit: cover;
+}
+
+.details-info {
+  flex: 1;
+}
+
+.details-info h2 {
+  margin-bottom: 12px;
+  font-size: 26px;
+  font-weight: bold;
+  color: #ff4444;
+}
+
+.details-info p {
+  margin: 6px 0;
+  font-size: 15px;
+  line-height: 1.4;
+}
+
+.overview {
+  margin-top: 14px;
+  font-size: 14px;
+  color: #ddd;
+}
+
+/* 🔹 Buttons Row */
+.buttons-row {
+  margin-top: 20px;
+  display: flex;
+  gap: 12px;
+}
+
+.buttons-row button {
+  background: #ff4444;
+  color: #fff;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.2s;
+}
+
+.buttons-row button:hover {
+  background: #e63e3e;
+  transform: scale(1.05);
+}
+
+/* 🔹 Loading State */
+.loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80vh;
+  font-size: 18px;
+  font-weight: bold;
+  color: #999;
+}
+
+.btn-watch {
+background: #ff4444;
+  color: #fff;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.2s;
+}
+
+.btn-watch:hover {
+  background: #b20710;
+  transform: scale(1.05);
+}

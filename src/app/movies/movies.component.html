@@ -1,0 +1,67 @@
+<div class="container">
+  <button class="back-btn" (click)="goBack()">⬅ Back</button>
+
+  <h1 class="page-title">🎬 Movie List</h1>
+
+  <!-- Search & Filter -->
+  <div class="search-filter">
+    <input 
+      type="text" 
+      placeholder="🔍 Search by title..." 
+      [(ngModel)]="searchText"
+      (input)="filterMovies()"
+    >
+    <input 
+      type="number" 
+      placeholder="📅 Filter by year..." 
+      [(ngModel)]="filterYear"
+      (input)="filterMovies()"
+    >
+    <button class="reset-btn" (click)="resetFilters()">Reset</button>
+  </div>
+
+  <!-- Add Movie Form -->
+  <div class="add-movie">
+    <input type="text" placeholder="Title" [(ngModel)]="newTitle">
+    <input type="number" placeholder="Year" [(ngModel)]="newYear">
+    <input type="text" placeholder="Poster URL" [(ngModel)]="newPoster">
+    <button class="add-btn" (click)="addMovie()">➕ Add Movie</button>
+  </div>
+
+  <!-- Movie Grid -->
+  <div class="movie-grid">
+    <div class="movie-card" *ngFor="let movie of filteredMovies; let i = index">
+      <div class="poster-wrapper">
+        <img [src]="movie.poster" [alt]="movie.title">
+        <!-- Overlay with Details Button -->
+        <div class="overlay">
+          <!-- ✅ RouterLink instead of click -->
+          <button class="details-btn" [routerLink]="['/movie', movie.id]">ℹ️ Details</button>
+        </div>
+      </div>
+      <div class="movie-info">
+        <h2>{{ movie.title }}</h2>
+        <p>{{ movie.year }}</p>
+      </div>
+      <div class="card-buttons">
+        <button class="edit-btn" (click)="editMovie(i)">✏️ Edit</button>
+        <button class="delete-btn" (click)="deleteMovie(i)">🗑 Delete</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Edit Movie Modal -->
+  <div class="modal" *ngIf="editingIndex !== null">
+    <div class="modal-content">
+      <h3>Edit Movie</h3>
+      <input type="text" [(ngModel)]="editTitle" placeholder="Title">
+      <input type="number" [(ngModel)]="editYear" placeholder="Year">
+      <input type="text" [(ngModel)]="editPoster" placeholder="Poster URL">
+      <textarea [(ngModel)]="editDescription" placeholder="Description"></textarea>
+      <div class="modal-buttons">
+        <button (click)="saveEdit()">Save</button>
+        <button (click)="cancelEdit()">Cancel</button>
+      </div>
+    </div>
+  </div>
+</div>
